@@ -3,44 +3,59 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>片語筆記</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<title>Phrase Notes · 片語筆記</title>
 <style>
-*{box-sizing:border-box}body{margin:0;color:#333332;background:#fff;font:16px/1.8 system-ui,sans-serif}header{padding:26px 6%;border-bottom:1px solid #333332;font-size:26px;font-weight:750}main{max-width:1150px;margin:auto;padding:40px 24px;display:grid;grid-template-columns:230px 1fr;gap:48px}aside{align-self:start}input{width:100%;padding:11px;border:1px solid #d7d3cd;border-radius:0;font:inherit}nav{margin-top:20px}nav a{display:block;background:#b96853;color:#fff8ed;padding:20px;text-decoration:none}nav strong{display:block;font-size:20px}nav span{font-size:14px}h1{font:500 44px/1.2 Georgia,serif;margin:0 0 10px}h2{font-size:17px;margin:28px 0 10px}p{margin:8px 0}.meaning{font-size:22px}.word{background:#f5f1eb;border-left:4px solid #b96853;padding:16px 20px;margin:24px 0}.word a{color:#934a39;font-weight:700;text-underline-offset:4px}.word p{font-size:14px}.pattern{background:#b96853;color:#fff8ed;padding:17px 20px;font-size:17px}table{border-collapse:collapse;width:100%;font-size:15px}td{border-bottom:1px solid #ddd7d0;padding:10px 0}td:first-child{width:55%}.example{padding:16px 0;border-bottom:1px solid #ddd7d0}.en{font:19px/1.5 Georgia,serif}.zh{font-size:14px;color:#68645f}button{background:white;color:#934a39;border:1px solid #b96853;padding:5px 10px;font:inherit;font-size:20px;cursor:pointer;float:right;min-width:44px;min-height:44px}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b96853;outline-offset:3px}#voiceStatus{font-size:12px;color:#68645f}#voiceStatus:empty{display:none}[hidden]{display:none!important}@media(max-width:700px){main{grid-template-columns:1fr;gap:28px;padding:24px 20px}header{padding:20px}nav{margin-top:12px}nav a{padding:14px 18px}h1{font-size:36px}td:first-child{width:58%}}
+:root{--paper:#f7f5ef;--ink:#343332;--muted:#77736f;--accent:#c56f58;--accent-dark:#9f5846;--line:#4a4744;--soft:#ece7df;--white:#fffdf8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei","Segoe UI",sans-serif;line-height:1.72}
+.page{max-width:980px;margin:auto;padding:34px 24px 72px}.topline{padding-bottom:14px;border-bottom:2px solid var(--line);color:var(--muted);font-size:13px;letter-spacing:.12em}.hero{padding:70px 0 56px}.hero h1{font-size:clamp(54px,10vw,112px);line-height:.9;margin:14px 0 18px;letter-spacing:-.06em;font-weight:900}.accent{color:var(--accent)}
+.collection{margin-bottom:28px}input{width:100%;appearance:none;border:1px solid #b8aea5;border-radius:0;padding:13px 16px;background:var(--white);color:var(--ink);font:inherit;font-size:16px;min-height:48px}input::placeholder{color:var(--muted)}.phrase-nav{margin:12px 0 0;display:flex;flex-wrap:wrap;gap:8px}.phrase-nav a{padding:12px 16px;min-height:48px;text-decoration:none;border:1px solid #b8aea5;color:var(--ink);font-size:14px;background:var(--white)}.phrase-nav a:hover{border-color:var(--accent)}.phrase-nav strong{font-weight:700}.phrase-nav span{color:var(--muted);margin-left:12px}
+.section-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:44px}.section-nav a{padding:14px 10px;min-height:48px;color:var(--ink);text-decoration:none;text-align:center;font-weight:700;font-size:14px;border-right:1px solid #bbb4aa}.section-nav a:last-child{border-right:0}.section-nav a:hover{background:var(--soft)}
+article{min-width:0;border-top:10px solid var(--accent);background:var(--white);padding:30px;box-shadow:0 9px 30px rgba(40,37,34,.06);scroll-margin-top:20px}.phrase-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.phrase-heading h2{min-width:0;font-size:clamp(27px,4.5vw,38px);line-height:1.2;letter-spacing:-.02em;margin:0;overflow-wrap:anywhere}.meaning{font-size:20px;margin:10px 0 0}
+.speak{flex-shrink:0;display:grid;place-items:center;appearance:none;border:0;border-radius:50%;width:48px;height:48px;background:var(--accent);color:var(--white);cursor:pointer;padding:0}.speak svg{width:26px;height:26px}.speak:hover{background:var(--accent-dark)}.speak:active{transform:translateY(1px)}
+section{scroll-margin-top:20px}.section{padding:30px 0;border-bottom:1px solid #c8c1b8}.section:last-child{border-bottom:0;padding-bottom:0}h3{font-size:23px;line-height:1.35;margin:0 0 14px}p{margin:8px 0}.word{padding:18px 20px;background:var(--soft);border-left:4px solid var(--accent)}.word a{color:var(--accent-dark);font-weight:750;text-underline-offset:4px}.word p{font-size:15px}.pattern{background:var(--soft);border-left:4px solid var(--accent);padding:18px 20px;font-size:17px;overflow-wrap:anywhere}.zh{color:#66615c;font-size:14px}.collocations{display:grid}.collocation{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;padding:14px 0;border-top:1px solid #d6cec4}.collocation:first-child{border-top:0}.collocation dt,.collocation dd{margin:0}.collocation dt{font-size:16px;font-weight:650}.collocation dd{font-size:15px;color:#66615c}.example{padding:16px 0;border-top:1px solid #d6cec4}.example:first-of-type{border-top:0;padding-top:0}.example:last-child{padding-bottom:0}.en{font-size:17px;line-height:1.72;overflow-wrap:anywhere}.en,.zh{margin:0 0 6px}#voiceStatus{font-size:13px;color:var(--muted);margin:12px 0 0}#voiceStatus:empty{display:none}#empty{margin-top:12px}[hidden]{display:none!important}a,button,input{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--accent-dark);outline-offset:4px}
+@media(max-width:680px){.page{padding:22px 16px 48px}.hero{padding:48px 0 38px}.topline{font-size:11px}.hero h1{font-size:clamp(48px,12vw,80px)}.section-nav{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:28px}.section-nav a:nth-child(2){border-right:0}.section-nav a:nth-child(-n+2){border-bottom:1px solid #bbb4aa}article{padding:22px 18px}.collocation{grid-template-columns:1fr;gap:4px}.pattern{padding:16px}.section{padding:26px 0}.phrase-nav a{width:100%}.en{font-size:16px}.phrase-heading{gap:10px}.phrase-heading h2{font-size:clamp(26px,6.5vw,34px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<header>片語筆記</header>
-<main>
-<aside>
+<main class="page">
+<div class="topline">PHRASE NOTES · 片語筆記</div>
+<header class="hero"><h1>PHRASE <span class="accent">NOTES</span></h1></header>
+<div class="collection">
 <input id="search" aria-label="搜尋片語" type="search" placeholder="搜尋片語…">
-<nav aria-label="片語列表"><a href="#strike-a-balance" data-search="strike a balance 取得平衡"><strong>strike a balance</strong><span>取得平衡</span></a></nav>
+<nav class="phrase-nav" aria-label="片語列表"><a href="#strike-a-balance" data-search="strike a balance 取得平衡"><strong>strike a balance</strong><span>取得平衡</span></a></nav>
 <p id="empty" class="zh" hidden>沒有符合的片語。</p>
-</aside>
+</div>
+<nav class="section-nav" aria-label="內容導覽"><a href="#word">單字意思</a><a href="#pattern">核心句型</a><a href="#collocations">常見搭配</a><a href="#examples">例句</a></nav>
 <article id="strike-a-balance">
-<button id="speak" aria-label="以英式女聲朗讀片語" title="朗讀片語">🔊</button>
-<h1>strike a balance</h1>
+<div class="phrase-heading"><h2>strike a balance</h2>
+<button class="speak" id="speak" type="button" aria-label="以英式女聲朗讀 strike a balance" title="朗讀片語"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false"><path d="M5 11h4l5-4v14l-5-4H5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 10c2 2 2 6 0 8M21 7c4 4 4 10 0 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div>
 <p class="meaning">取得平衡</p>
 <p id="voiceStatus" role="status"></p>
-<section class="word">
-<strong>單字意思 · <a href="https://dictionary.cambridge.org/dictionary/english/strike" target="_blank" rel="noopener noreferrer">strike ↗</a></strong>
+<section class="section" id="word"><h3>單字意思</h3><div class="word">
+<strong><a href="https://dictionary.cambridge.org/dictionary/english/strike" target="_blank" rel="noopener noreferrer">strike ↗</a></strong>
 <p><b>(V.)</b> 打、撞擊；罷工；突然想到；達成（協議等）。<br><b>(N.)</b> 罷工；打擊、攻擊。</p>
 <p>在這個片語中，可理解為「取得、達成」。<br>參考：Cambridge Dictionary</p>
-</section>
-<h2>核心句型</h2>
+</div></section>
+<section class="section" id="pattern"><h3>核心句型</h3>
 <div class="pattern">主詞 + strike a balance between A and B</div>
 <p class="zh">A、B 可以是名詞、名詞片語或 V-ing。</p>
-<h2>常見搭配</h2>
-<table aria-label="常見搭配">
-<tr><td>strike the right balance</td><td>取得恰當的平衡</td></tr>
-<tr><td>strike a delicate balance</td><td>取得微妙、需要謹慎拿捏的平衡</td></tr>
-<tr><td>strike a reasonable balance</td><td>取得合理的平衡</td></tr>
-</table>
-<h2>例句</h2>
+</section>
+<section class="section" id="collocations"><h3>常見搭配</h3>
+<dl class="collocations">
+<div class="collocation"><dt>strike the right balance</dt><dd>取得恰當的平衡</dd></div>
+<div class="collocation"><dt>strike a delicate balance</dt><dd>取得微妙、需要謹慎拿捏的平衡</dd></div>
+<div class="collocation"><dt>strike a reasonable balance</dt><dd>取得合理的平衡</dd></div>
+</dl>
+</section>
+<section class="section" id="examples"><h3>例句</h3>
 <div class="example"><p class="en">Students should strike a balance between studying and relaxing.</p><p class="zh">學生應該在讀書與休息之間取得平衡。</p></div>
 <div class="example"><p class="en">It can be difficult to strike the right balance between work and family life.</p><p class="zh">要在工作與家庭生活之間取得恰當的平衡，可能並不容易。</p></div>
 <div class="example"><p class="en">Governments must strike a delicate balance between economic growth and environmental protection.</p><p class="zh">政府必須在經濟成長與環境保護之間取得微妙的平衡。</p></div>
 <div class="example"><p class="en">Society needs to strike a balance between technological innovation and individual privacy.</p><p class="zh">社會需要在科技創新與個人隱私之間取得平衡。</p></div>
+</section>
 </article>
 </main>
 <script>
