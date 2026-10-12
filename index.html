@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>片語筆記</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#333332;background:#fff;font:16px/1.8 system-ui,sans-serif}header{padding:26px 6%;border-bottom:1px solid #333332;font-size:26px;font-weight:750}main{max-width:1150px;margin:auto;padding:40px 24px;display:grid;grid-template-columns:230px 1fr;gap:48px}aside{align-self:start}input{width:100%;padding:11px;border:1px solid #d7d3cd;border-radius:0;font:inherit}nav{margin-top:20px}nav a{display:block;background:#b96853;color:#fff8ed;padding:20px;text-decoration:none}nav strong{display:block;font-size:20px}nav span{font-size:14px}h1{font:500 44px/1.2 Georgia,serif;margin:0 0 10px}h2{font-size:17px;margin:28px 0 10px}p{margin:8px 0}.meaning{font-size:22px}.word{background:#f5f1eb;border-left:4px solid #b96853;padding:16px 20px;margin:24px 0}.word a{color:#934a39;font-weight:700;text-underline-offset:4px}.word p{font-size:14px}.pattern{background:#b96853;color:#fff8ed;padding:17px 20px;font-size:17px}table{border-collapse:collapse;width:100%;font-size:15px}td{border-bottom:1px solid #ddd7d0;padding:10px 0}td:first-child{width:55%}.example{padding:16px 0;border-bottom:1px solid #ddd7d0}.en{font:19px/1.5 Georgia,serif}.zh{font-size:14px;color:#68645f}button{background:white;color:#934a39;border:1px solid #b96853;padding:5px 10px;font:inherit;font-size:20px;cursor:pointer;float:right;min-width:44px;min-height:44px}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b96853;outline-offset:3px}#voiceStatus{font-size:12px;color:#68645f}#voiceStatus:empty{display:none}[hidden]{display:none!important}@media(max-width:700px){main{grid-template-columns:1fr;gap:28px;padding:24px 20px}header{padding:20px}nav{margin-top:12px}nav a{padding:14px 18px}h1{font-size:36px}td:first-child{width:58%}}
+</style>
+</head>
+<body>
+<header>片語筆記</header>
+<main>
+<aside>
+<input id="search" aria-label="搜尋片語" type="search" placeholder="搜尋片語…">
+<nav aria-label="片語列表"><a href="#strike-a-balance" data-search="strike a balance 取得平衡"><strong>strike a balance</strong><span>取得平衡</span></a></nav>
+<p id="empty" class="zh" hidden>沒有符合的片語。</p>
+</aside>
+<article id="strike-a-balance">
+<button id="speak" aria-label="以英式女聲朗讀片語" title="朗讀片語">🔊</button>
+<h1>strike a balance</h1>
+<p class="meaning">取得平衡</p>
+<p id="voiceStatus" role="status"></p>
+<section class="word">
+<strong>單字意思 · <a href="https://dictionary.cambridge.org/dictionary/english/strike" target="_blank" rel="noopener noreferrer">strike ↗</a></strong>
+<p><b>(V.)</b> 打、撞擊；罷工；突然想到；達成（協議等）。<br><b>(N.)</b> 罷工；打擊、攻擊。</p>
+<p>在這個片語中，可理解為「取得、達成」。<br>參考：Cambridge Dictionary</p>
+</section>
+<h2>核心句型</h2>
+<div class="pattern">主詞 + strike a balance between A and B</div>
+<p class="zh">A、B 可以是名詞、名詞片語或 V-ing。</p>
+<h2>常見搭配</h2>
+<table aria-label="常見搭配">
+<tr><td>strike the right balance</td><td>取得恰當的平衡</td></tr>
+<tr><td>strike a delicate balance</td><td>取得微妙、需要謹慎拿捏的平衡</td></tr>
+<tr><td>strike a reasonable balance</td><td>取得合理的平衡</td></tr>
+</table>
+<h2>例句</h2>
+<div class="example"><p class="en">Students should strike a balance between studying and relaxing.</p><p class="zh">學生應該在讀書與休息之間取得平衡。</p></div>
+<div class="example"><p class="en">It can be difficult to strike the right balance between work and family life.</p><p class="zh">要在工作與家庭生活之間取得恰當的平衡，可能並不容易。</p></div>
+<div class="example"><p class="en">Governments must strike a delicate balance between economic growth and environmental protection.</p><p class="zh">政府必須在經濟成長與環境保護之間取得微妙的平衡。</p></div>
+<div class="example"><p class="en">Society needs to strike a balance between technological innovation and individual privacy.</p><p class="zh">社會需要在科技創新與個人隱私之間取得平衡。</p></div>
+</article>
+</main>
+<script>
+'use strict';
+const status=document.getElementById('voiceStatus');
+let voices=[];
+function loadVoices(){voices=window.speechSynthesis.getVoices()}
+if('speechSynthesis' in window){loadVoices();window.speechSynthesis.addEventListener('voiceschanged',loadVoices)}
+document.getElementById('speak').addEventListener('click',()=>{
+ if(!('speechSynthesis' in window)){status.textContent='此瀏覽器不支援朗讀。';return}
+ loadVoices();
+ const british=voices.filter(v=>/^en[-_]GB$/i.test(v.lang));
+ const preferred=[/\bKate\b/i,/\bSerena\b/i,/Google UK English Female/i,/\bSonia\b/i,/\bLibby\b/i,/\bMartha\b/i];
+ let voice;
+ for(const name of preferred){voice=british.find(v=>name.test(v.name));if(voice)break}
+ if(!voice){status.textContent=voices.length?'此裝置尚未提供可辨識的英式女聲。':'語音清單正在載入，請再按一次。';return}
+ window.speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance('strike a balance');
+ u.voice=voice;u.lang='en-GB';u.rate=.88;u.pitch=1;
+ status.textContent='';
+ u.onerror=()=>{status.textContent='朗讀暫時無法使用，請再試一次。'};
+ window.speechSynthesis.speak(u);
+});
+document.getElementById('search').addEventListener('input',e=>{
+ const query=e.target.value.trim().toLowerCase();let count=0;
+ document.querySelectorAll('nav a[data-search]').forEach(a=>{a.hidden=!a.dataset.search.toLowerCase().includes(query);if(!a.hidden)count++});
+ document.getElementById('empty').hidden=count>0;
+});
+</script>
+</body>
+</html>
