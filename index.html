@@ -14,9 +14,10 @@
 .section-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:44px}.section-nav a{padding:14px 10px;min-height:48px;color:var(--ink);text-decoration:none;text-align:center;font-weight:700;font-size:14px;border-right:1px solid #bbb4aa}.section-nav a:last-child{border-right:0}.section-nav a:hover{background:var(--soft)}
 article{min-width:0;border-top:10px solid var(--accent);background:var(--white);padding:30px;box-shadow:0 9px 30px rgba(40,37,34,.06);scroll-margin-top:20px}.phrase-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.phrase-heading h2{min-width:0;font-size:clamp(27px,4.5vw,38px);line-height:1.2;letter-spacing:-.02em;margin:0;overflow-wrap:anywhere}.meaning{font-size:20px;margin:10px 0 0}
 .speak{flex-shrink:0;display:grid;place-items:center;appearance:none;border:0;border-radius:50%;width:48px;height:48px;background:var(--accent);color:var(--white);cursor:pointer;padding:0}.speak svg{width:26px;height:26px}.speak:hover{background:var(--accent-dark)}.speak:active{transform:translateY(1px)}
-section{scroll-margin-top:20px}.section{padding:30px 0;border-bottom:1px solid #c8c1b8}.section:last-child{border-bottom:0;padding-bottom:0}h3{font-size:23px;line-height:1.35;margin:0 0 14px}p{margin:8px 0}.word{padding:18px 20px;background:var(--soft);border-left:4px solid var(--accent)}.word a{color:var(--accent-dark);font-weight:750;text-underline-offset:4px}.word p{font-size:15px}.pattern{background:var(--soft);border-left:4px solid var(--accent);padding:18px 20px;font-size:17px;overflow-wrap:anywhere}.zh{color:#66615c;font-size:14px}.collocations{display:grid}.collocation{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;padding:14px 0;border-top:1px solid #d6cec4}.collocation:first-child{border-top:0}.collocation dt,.collocation dd{margin:0}.collocation dt{font-size:16px;font-weight:650}.collocation dd{font-size:15px;color:#66615c}.example{padding:16px 0;border-top:1px solid #d6cec4}.example:first-of-type{border-top:0;padding-top:0}.example:last-child{padding-bottom:0}.en{font-size:17px;line-height:1.72;overflow-wrap:anywhere}.en,.zh{margin:0 0 6px}#voiceStatus{font-size:13px;color:var(--muted);margin:12px 0 0}#voiceStatus:empty{display:none}#empty{margin-top:12px}[hidden]{display:none!important}a,button,input{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--accent-dark);outline-offset:4px}
+section{scroll-margin-top:20px}.section{padding:30px 0;border-bottom:1px solid #c8c1b8}.section:last-child{border-bottom:0;padding-bottom:0}h3{font-size:23px;line-height:1.35;margin:0 0 14px}p{margin:8px 0}.word{padding:18px 20px;background:var(--soft);border-left:4px solid var(--accent)}.word a{color:var(--accent-dark);font-weight:750;text-underline-offset:4px}.word p{font-size:15px}.pattern{background:var(--soft);border-left:4px solid var(--accent);padding:18px 20px;font-size:17px;overflow-wrap:anywhere}.zh{color:#66615c;font-size:14px}.collocations{display:grid}.collocation{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;padding:14px 0;border-top:1px solid #d6cec4}.collocation:first-child{border-top:0}.collocation dt,.collocation dd{margin:0}.collocation dt{font-size:16px;font-weight:650}.collocation dd{font-size:15px;color:#66615c}.example{padding:16px 0;border-top:1px solid #d6cec4}.example:first-of-type{border-top:0;padding-top:0}.example:last-child{padding-bottom:0}.en{font-size:17px;line-height:1.72;overflow-wrap:anywhere}.en,.zh{margin:0 0 6px}.voice-status{font-size:13px;color:var(--muted);margin:12px 0 0}.voice-status:empty{display:none}#empty{margin-top:12px}[hidden]{display:none!important}a,button,input{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--accent-dark);outline-offset:4px}
 @media(max-width:680px){.page{padding:22px 16px 48px}.hero{padding:48px 0 38px}.topline{font-size:11px}.hero h1{font-size:clamp(48px,12vw,80px)}.section-nav{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:28px}.section-nav a:nth-child(2){border-right:0}.section-nav a:nth-child(-n+2){border-bottom:1px solid #bbb4aa}article{padding:22px 18px}.collocation{grid-template-columns:1fr;gap:4px}.pattern{padding:16px}.section{padding:26px 0}.phrase-nav a{width:100%}.en{font-size:16px}.phrase-heading{gap:10px}.phrase-heading h2{font-size:clamp(26px,6.5vw,34px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.phrase-nav a[aria-current="true"]{border-color:var(--accent);background:var(--soft)}
 </style>
 </head>
 <body>
@@ -25,45 +26,70 @@ section{scroll-margin-top:20px}.section{padding:30px 0;border-bottom:1px solid #
 <header class="hero"><h1>PHRASE <span class="accent">NOTES</span></h1></header>
 <div class="collection">
 <input id="search" aria-label="搜尋片語" type="search" placeholder="搜尋片語…">
-<nav class="phrase-nav" aria-label="片語列表"><a href="#strike-a-balance" data-search="strike a balance 取得平衡"><strong>strike a balance</strong><span>取得平衡</span></a></nav>
+<nav class="phrase-nav" aria-label="片語列表"><a href="#strike-a-balance" data-search="strike a balance 取得平衡"><strong>strike a balance</strong><span>取得平衡</span></a><a href="#buzz" data-search="buzz 話題、熱度、討論聲量"><strong>buzz</strong><span>話題、熱度、討論聲量</span></a><a href="#make-ends-meet" data-search="make ends meet 勉強維持生計、收支打平"><strong>make ends meet</strong><span>勉強維持生計、收支打平</span></a><a href="#infiltrate" data-search="infiltrate 滲透、潛入"><strong>infiltrate</strong><span>滲透、潛入</span></a></nav>
 <p id="empty" class="zh" hidden>沒有符合的片語。</p>
 </div>
-<nav class="section-nav" aria-label="內容導覽"><a href="#word">單字意思</a><a href="#pattern">核心句型</a><a href="#collocations">常見搭配</a><a href="#examples">例句</a></nav>
+<nav class="section-nav" aria-label="內容導覽"><a href="#strike-a-balance-word">單字意思</a><a href="#strike-a-balance-pattern">核心句型</a><a href="#strike-a-balance-collocations">常見搭配</a><a href="#strike-a-balance-examples">例句</a></nav>
 <article id="strike-a-balance">
 <div class="phrase-heading"><h2>strike a balance</h2>
-<button class="speak" id="speak" type="button" aria-label="以英式女聲朗讀 strike a balance" title="朗讀片語"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false"><path d="M5 11h4l5-4v14l-5-4H5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 10c2 2 2 6 0 8M21 7c4 4 4 10 0 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div>
+<button class="speak" id="speak" data-speak="strike a balance" type="button" aria-label="以英式女聲朗讀 strike a balance" title="朗讀片語"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false"><path d="M5 11h4l5-4v14l-5-4H5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 10c2 2 2 6 0 8M21 7c4 4 4 10 0 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div>
 <p class="meaning">取得平衡</p>
-<p id="voiceStatus" role="status"></p>
-<section class="section" id="word"><h3>單字意思</h3><div class="word">
+<p id="voiceStatus" class="voice-status" role="status"></p>
+<section class="section" id="strike-a-balance-word"><h3>單字意思</h3><div class="word">
 <strong><a href="https://dictionary.cambridge.org/dictionary/english/strike" target="_blank" rel="noopener noreferrer">strike ↗</a></strong>
 <p><b>(V.)</b> 打、撞擊；罷工；突然想到；達成（協議等）。<br><b>(N.)</b> 罷工；打擊、攻擊。</p>
 <p>在這個片語中，可理解為「取得、達成」。</p>
 </div></section>
-<section class="section" id="pattern"><h3>核心句型</h3>
+<section class="section" id="strike-a-balance-pattern"><h3>核心句型</h3>
 <div class="pattern">主詞 + strike a balance between A and B</div>
 </section>
-<section class="section" id="collocations"><h3>常見搭配</h3>
+<section class="section" id="strike-a-balance-collocations"><h3>常見搭配</h3>
 <dl class="collocations">
 <div class="collocation"><dt>strike the right balance</dt><dd>取得恰當的平衡</dd></div>
 <div class="collocation"><dt>strike a delicate balance</dt><dd>取得微妙、需要謹慎拿捏的平衡</dd></div>
 <div class="collocation"><dt>strike a reasonable balance</dt><dd>取得合理的平衡</dd></div>
 </dl>
 </section>
-<section class="section" id="examples"><h3>例句</h3>
+<section class="section" id="strike-a-balance-examples"><h3>例句</h3>
 <div class="example"><p class="en">Students should strike a balance between studying and relaxing.</p><p class="zh">學生應該在讀書與休息之間取得平衡。</p></div>
 <div class="example"><p class="en">It can be difficult to strike the right balance between work and family life.</p><p class="zh">要在工作與家庭生活之間取得恰當的平衡，可能並不容易。</p></div>
 <div class="example"><p class="en">Governments must strike a delicate balance between economic growth and environmental protection.</p><p class="zh">政府必須在經濟成長與環境保護之間取得微妙的平衡。</p></div>
 <div class="example"><p class="en">Society needs to strike a balance between technological innovation and individual privacy.</p><p class="zh">社會需要在科技創新與個人隱私之間取得平衡。</p></div>
 </section>
 </article>
+<article id="buzz" hidden>
+<div class="phrase-heading"><h2>buzz</h2><button class="speak" type="button" aria-label="以英式女聲朗讀 buzz" title="朗讀片語" data-speak="buzz"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false"><path d="M5 11h4l5-4v14l-5-4H5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 10c2 2 2 6 0 8M21 7c4 4 4 10 0 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div>
+<p class="meaning">話題、熱度、討論聲量</p><p class="voice-status" role="status"></p>
+<section class="section" id="buzz-word"><h3>單字意思</h3><div class="word"><strong><a href="https://dictionary.cambridge.org/dictionary/english/buzz" target="_blank" rel="noopener noreferrer">buzz ↗</a></strong><p><b>(N.)</b> 嗡嗡聲；興奮感；熱烈討論。</p><p>這裡指某件事引起的熱烈討論與關注，通常偏正面。</p></div></section>
+<section class="section" id="buzz-pattern"><h3>核心句型</h3><div class="pattern">主詞 + generate / create buzz about / around + 某事物</div></section>
+<section class="section" id="buzz-collocations"><h3>常見搭配</h3><dl class="collocations"><div class="collocation"><dt>a lot of buzz</dt><dd>大量討論、很高的話題度</dd></div><div class="collocation"><dt>generate / create buzz</dt><dd>引起熱烈討論</dd></div><div class="collocation"><dt>buzz around the film</dt><dd>圍繞這部電影的話題與熱度</dd></div></dl></section>
+<section class="section" id="buzz-examples"><h3>例句</h3><div class="example"><p class="en">I watched <i>Parasite</i> because of all the buzz it had generated overseas.</p><p class="zh">我看了《寄生上流》，因為它在海外引起了大量討論與關注。</p></div><div class="example"><p class="en">The new restaurant has created a lot of buzz online.</p><p class="zh">這家新餐廳在網路上引起了熱烈討論。</p></div><div class="example"><p class="en">There was a lot of buzz around the new film before its release.</p><p class="zh">這部新電影上映前就引起了大量討論。</p></div></section>
+</article>
+<article id="make-ends-meet" hidden>
+<div class="phrase-heading"><h2>make ends meet</h2><button class="speak" type="button" aria-label="以英式女聲朗讀 make ends meet" title="朗讀片語" data-speak="make ends meet"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false"><path d="M5 11h4l5-4v14l-5-4H5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 10c2 2 2 6 0 8M21 7c4 4 4 10 0 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div>
+<p class="meaning">勉強維持生計、收支打平</p><p class="voice-status" role="status"></p>
+<section class="section" id="make-ends-meet-word"><h3>片語意思</h3><div class="word"><strong><a href="https://dictionary.cambridge.org/dictionary/english/make-ends-meet" target="_blank" rel="noopener noreferrer">make ends meet ↗</a></strong><p>收入剛好足以支付基本生活所需。</p></div></section>
+<section class="section" id="make-ends-meet-pattern"><h3>核心句型</h3><div class="pattern">主詞 + make ends meet<br>主詞 + struggle to make ends meet</div></section>
+<section class="section" id="make-ends-meet-collocations"><h3>常見搭配</h3><dl class="collocations"><div class="collocation"><dt>struggle to make ends meet</dt><dd>艱難地維持生計</dd></div><div class="collocation"><dt>barely make ends meet</dt><dd>勉強收支打平</dd></div><div class="collocation"><dt>make ends meet on a low income</dt><dd>靠微薄收入維持生計</dd></div></dl></section>
+<section class="section" id="make-ends-meet-examples"><h3>例句</h3><div class="example"><p class="en">In <i>Parasite</i>, the family folds pizza boxes to make ends meet.</p><p class="zh">在《寄生上流》中，這一家人靠摺披薩盒維持生計。</p></div><div class="example"><p class="en">She works two jobs just to make ends meet.</p><p class="zh">她打兩份工，只為了勉強維持生計。</p></div><div class="example"><p class="en">With rents rising, many young people struggle to make ends meet.</p><p class="zh">隨著租金上漲，許多年輕人難以維持基本生活。</p></div></section>
+</article>
+<article id="infiltrate" hidden>
+<div class="phrase-heading"><h2>infiltrate</h2><button class="speak" type="button" aria-label="以英式女聲朗讀 infiltrate" title="朗讀片語" data-speak="infiltrate"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false"><path d="M5 11h4l5-4v14l-5-4H5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 10c2 2 2 6 0 8M21 7c4 4 4 10 0 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div>
+<p class="meaning">滲透、潛入</p><p class="voice-status" role="status"></p>
+<section class="section" id="infiltrate-word"><h3>單字意思</h3><div class="word"><strong><a href="https://dictionary.cambridge.org/dictionary/english/infiltrate" target="_blank" rel="noopener noreferrer">infiltrate ↗</a></strong><p><b>(V.)</b> 秘密進入某個團體或組織，以取得情報或施加影響。</p><p>在《寄生上流》中，指一家人以隱瞞身分的方式，逐步進入富裕家庭。</p></div></section>
+<section class="section" id="infiltrate-pattern"><h3>核心句型</h3><div class="pattern">主詞 + infiltrate + 團體／組織／場所</div></section>
+<section class="section" id="infiltrate-collocations"><h3>常見搭配</h3><dl class="collocations"><div class="collocation"><dt>infiltrate an organisation</dt><dd>滲透一個組織</dd></div><div class="collocation"><dt>infiltrate a criminal gang</dt><dd>潛入犯罪集團</dd></div><div class="collocation"><dt>infiltrate the enemy camp</dt><dd>潛入敵營</dd></div></dl></section>
+<section class="section" id="infiltrate-examples"><h3>例句</h3><div class="example"><p class="en">In <i>Parasite</i>, the family gradually infiltrates a wealthy household by taking on different jobs.</p><p class="zh">在《寄生上流》中，這一家人透過擔任不同工作，逐步滲透進一個富裕家庭。</p></div><div class="example"><p class="en">An undercover officer infiltrated the criminal gang to gather evidence.</p><p class="zh">一名臥底警員潛入犯罪集團蒐集證據。</p></div><div class="example"><p class="en">Enemy agents attempted to infiltrate the organisation.</p><p class="zh">敵方特務試圖滲透這個組織。</p></div></section>
+</article>
 </main>
 <script>
 'use strict';
-const status=document.getElementById('voiceStatus');
+
 let voices=[];
 function loadVoices(){voices=window.speechSynthesis.getVoices()}
 if('speechSynthesis' in window){loadVoices();window.speechSynthesis.addEventListener('voiceschanged',loadVoices)}
-document.getElementById('speak').addEventListener('click',()=>{
+document.querySelectorAll('[data-speak]').forEach(button=>button.addEventListener('click',()=>{
+ const status=button.closest('article').querySelector('.voice-status');
  if(!('speechSynthesis' in window)){status.textContent='此瀏覽器不支援朗讀。';return}
  loadVoices();
  const british=voices.filter(v=>/^en[-_]GB$/i.test(v.lang));
@@ -72,17 +98,36 @@ document.getElementById('speak').addEventListener('click',()=>{
  for(const name of preferred){voice=british.find(v=>name.test(v.name));if(voice)break}
  if(!voice){status.textContent=voices.length?'此裝置尚未提供可辨識的英式女聲。':'語音清單正在載入，請再按一次。';return}
  window.speechSynthesis.cancel();
- const u=new SpeechSynthesisUtterance('strike a balance');
+ const u=new SpeechSynthesisUtterance(button.dataset.speak);
  u.voice=voice;u.lang='en-GB';u.rate=.88;u.pitch=1;
  status.textContent='';
  u.onerror=()=>{status.textContent='朗讀暫時無法使用，請再試一次。'};
  window.speechSynthesis.speak(u);
-});
+}));
 document.getElementById('search').addEventListener('input',e=>{
  const query=e.target.value.trim().toLowerCase();let count=0;
  document.querySelectorAll('nav a[data-search]').forEach(a=>{a.hidden=!a.dataset.search.toLowerCase().includes(query);if(!a.hidden)count++});
  document.getElementById('empty').hidden=count>0;
 });
+
+const articles=Array.from(document.querySelectorAll('article'));
+const phraseLinks=Array.from(document.querySelectorAll('.phrase-nav a'));
+const sectionLinks=Array.from(document.querySelectorAll('.section-nav a'));
+function selectPhrase(id){
+ const current=articles.find(a=>a.id===id)||articles[0];
+ articles.forEach(a=>{a.hidden=a!==current});
+ phraseLinks.forEach(a=>{if(a.hash==='#'+current.id)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+ ['word','pattern','collocations','examples'].forEach((section,i)=>{sectionLinks[i].href='#'+current.id+'-'+section});
+ sectionLinks[0].textContent=current.querySelector('.section h3').textContent;
+ if('speechSynthesis' in window)window.speechSynthesis.cancel();
+}
+function selectFromHash(){
+ const hash=location.hash.slice(1);
+ const current=articles.find(a=>hash===a.id||hash.startsWith(a.id+'-'));
+ selectPhrase(current?current.id:articles[0].id);
+}
+window.addEventListener('hashchange',selectFromHash);
+selectFromHash();
 </script>
 </body>
 </html>
